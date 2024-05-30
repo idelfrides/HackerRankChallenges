@@ -1,3 +1,4 @@
 # HACKERRANK CHALLENGES
 
-Repositiry dedicated to pratice with real thecnical challenges by Hackerank.
+Repository dedicated to pratice technical skills  with real challenges by Hackerrank.
+That's very important for me and for my career.
