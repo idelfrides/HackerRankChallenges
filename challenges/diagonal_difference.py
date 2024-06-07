@@ -77,7 +77,7 @@ def diagonalDifference(arr):
     # 7 5 6
     # PD = 1+5+6 = 12 
     # SD = 3+5+7 = 15
-    # RESULT : ABS(12 - 15) = 3
+    # RESULT : A BS(12 - 15) = 3
      
     primary_diagonal = 0
     secondary_diagonal = 0
@@ -97,9 +97,9 @@ if __name__ == '__main__':
     arr = []
     
     for _ in range(n):
-        arr.append(list(map(int, input().rstrip().split())))
+        arr.append(list(map(int, input("ENTER E SEQUENCE OF VALUES :::>>  ").rstrip().split())))
 
     print(arr)
     result = diagonalDifference(arr)
 
-    print(f'THE RESULT IS :::>  {result}')
+    print(f'THE RESULT IS >>>>>>  {result}')
