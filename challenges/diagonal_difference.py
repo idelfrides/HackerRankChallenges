@@ -96,7 +96,8 @@ if __name__ == '__main__':
     n = int(input("ENTER A VALUE HERE :::>  ").strip())
     arr = []
     
-    for _ in range(n):
+    for row in range(1, n + 1):
+        print(f'\n ------ VALUES FOR ROW {row} --------\n')
         arr.append(list(map(int, input("ENTER E SEQUENCE OF VALUES :::>>  ").rstrip().split())))
 
     print(arr)
