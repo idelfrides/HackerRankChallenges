@@ -50,13 +50,12 @@ def bracket_balancing(exp: str) -> None:
     #     if c in OPEN_CHARACTERS:
     #         pill_array.append(c)
     
-    
     return
 
 
 # -------------------------------------------------------------------------------
 
-#  CHALLENGE 2 -  Revertendo os primeiros k elementos de uma fila
+# CHALLENGE 2 -  Revertendo os primeiros k elementos de uma fila
 
 # Dado um inteiro k e uma fila de inteiros, a tarefa é inverter a ordem dos primeiros k elemetos da fila, deixand os demais elementos na mesma ordem relativa .
 
@@ -65,6 +64,19 @@ def bracket_balancing(exp: str) -> None:
     #  [1, 2, 3, 4, 5] -> k=4 --> [4, 3, 2, 1, 5] 
     
 def revert_first_k_elements(k: int, elements: list[int]) -> None:
+    """### Revert firt k elements
+    
+    Dado um inteiro k e uma fila de inteiros, a tarefa é inverter a ordem dos primeiros k elemetos da fila, deixand os demais elementos na mesma ordem relativa .
+
+    #### Exemplos:
+        -  [1, 2, 3, 4, 5] -> k=2 --> [2, 1, 3, 4, 5] 
+        -  [1, 2, 3, 4, 5] -> k=4 --> [4, 3, 2, 1, 5] 
+
+    Args:
+        k (int): quantity of first elements of list to shift
+        elements (list[int]): list of real elements
+    """
+    
     keep_index_elem = elements[k:]
     current_lenght = len(elements) - k
     result_list = list()
@@ -80,7 +92,17 @@ def revert_first_k_elements(k: int, elements: list[int]) -> None:
     return
 
 
-def greatest_value_in_each_tree_level(tree_elements: list[list]):
+# CHALLENGE 3 - Maior valor em cada nível de uma arvore binária
+def greatest_value_in_each_tree_level(tree_elements: list[list]) -> list[int]:
+    """### Maior valor em cada nível de uma arvore binária
+
+    Args:
+        tree_elements (list[list]): real values of the binary tree 
+
+    Returns:
+        list[int]: a list of greatest value of each level 
+    """
+    
     result = []
     for level_values in tree_elements:
         level_values.sort()
@@ -93,9 +115,8 @@ def run_bracket_balancing():
     return
 
 
-
 def run_revert_first_k_elements_v2():
-    k = int(input("ENTER THE numer (k) of elemnts to switch up in ARRAY ::>  ").strip())
+    k = int(input("ENTER THE numer (k) of elemnts to switch up in ARRAY :>> ").strip())
 
     elements = list(map(int, input("ENTER E SEQUENCE OF VALUES :::>>  ").rstrip().split()))
     revert_first_k_elements(k, elements)
@@ -124,7 +145,7 @@ def run_greatest_value_in_each_tree_level():
         btree.append(list(map(int, input("ENTER E SEQUENCE OF VALUES :::>>  ").rstrip().split())))
 
     print(btree)
-    result = greatest_value_in_each_tree_level(btree)
+    result = greatest_value_in_each_tree_level(tree_elements=btree)
     
     print(f' \n\n THE RESULT IS >>>>>>  {result}')  
     print('\n\n RESULT DETAIL \n\n')
