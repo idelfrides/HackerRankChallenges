@@ -1,10 +1,8 @@
 
+from challenges.adatech import ada_challenges
+
 def run_challenge():
-    pass
-
-
-
-
+  ada_challenges.run_ada_challenges()
 
 
 
