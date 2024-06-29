@@ -1,3 +1,7 @@
 def end_app_execution():
-    print("\n\n YOU CHOOSE TO END UP THE APP. \n SEE YOU LATER!\n\n\n")
+    print("#" * 50)
+    print("\n YOU CHOOSE TO END UP THE APP. \n\n SEE YOU LATER!\n")
+    print("#" * 50)
+    print("\n\n\n")
+           
     exit(0)
