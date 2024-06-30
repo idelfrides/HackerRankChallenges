@@ -97,7 +97,7 @@ def run_bracket_balancing():
 
 
 def run_revert_first_k_elements_v2():
-    k = int(input("ENTER THE numer (k) of elemnts to switch up in ARRAY :>> ").strip())
+    k = int(input("ENTER THE number (k) of elements to swap out in ARRAY :>> ").strip())
 
     elements = list(map(int, input("ENTER E SEQUENCE OF VALUES :::>>  ").rstrip().split()))
     revert_first_k_elements(k, elements)
@@ -114,7 +114,9 @@ def run_revert_first_k_elements():
     revert_first_k_elements(
         k=4, elements=[1, 2, 3, 4, 5, 6, 7, 8]) # [4,3,2,1,5,6,7,8]
 
-    
+
+#TODO: CREATE A V2 OF run_greatest_value_in_each_tree_level METHOD TO SHOW THE PROPERTIES OF THE BINARY TREE ENTERED BY USER
+ 
 def run_greatest_value_in_each_tree_level():
     print("\n\n\n ENTER THE HIGHT OF YOUR BINARY TREE  \n\n")
     
@@ -139,6 +141,7 @@ def run_verifica_senha():
     
     # pwd = "senhateste#57@9"  # [2, 3]
     pwd_in = input("ENTER THE PASSWORD ::>>  ").strip()  
+    print("[qtd caracteres especiais, qtd numeros]") 
     print(verifica_senha(pwd_in)) 
     
     return
@@ -179,7 +182,7 @@ def verifica_senha(senha: str) -> list[int]:
 
 def run_ada_challenges():
     menu_options = [
-        "BALANCEAMNTO DE COLCHETES EM UMA EXPRESSÃO",
+        "BALANCEAMENTO DE COLCHETES EM UMA EXPRESSÃO MATEMETICA",
         "Revertendo os primeiros k elementos de uma fila",
         "maior valor de cada nivel de uma arvore binaria",
         "verificar senha"
