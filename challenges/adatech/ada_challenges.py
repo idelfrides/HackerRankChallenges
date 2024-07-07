@@ -2,6 +2,7 @@
 
 from LIBS.manager import end_app_execution
 from LIBS.ijdev_helper import special_chars
+import math
 
 
 # --------------------------------------------------
@@ -92,6 +93,31 @@ def greatest_value_in_each_tree_level(tree_elements: list[list]) -> list[int]:
     return result
 
 
+# CHALLENGE 3 - Maior valor em cada nível de uma arvore binária
+def binary_tree_properties(tree_elements: list[list], tree_hight: int) -> list[int]:
+    
+    # 1 - altura arvore N + 1
+    # 2 - elements by leVel
+    # 3 - 2**N
+    # 4 - total elemetos: (2**N+1) - 1
+
+    elements_by_level = dict()
+    total_elements = math.pow(2, tree_hight) - 1
+    
+    for N in range(tree_hight):
+        elements_by_level[f'level_{N + 1}'] = f"{int(math.pow(2, N))} elements"
+    
+    greatest_result = []
+    for level_values in tree_elements:
+        level_values.sort()
+        greatest_result.append(level_values[-1])
+    
+        
+    final_result = [total_elements, elements_by_level, greatest_result]
+    
+    return final_result 
+
+
 def run_bracket_balancing():
     return
 
@@ -115,7 +141,31 @@ def run_revert_first_k_elements():
         k=4, elements=[1, 2, 3, 4, 5, 6, 7, 8]) # [4,3,2,1,5,6,7,8]
 
 
-#TODO: CREATE A V2 OF run_greatest_value_in_each_tree_level METHOD TO SHOW THE PROPERTIES OF THE BINARY TREE ENTERED BY USER
+# Mostra propriedades de uma arvora binaria perfeita
+def run_binary_tree_properties():
+    print("\n\n\n ENTER THE HIGHT OF YOUR PERFECT BINARY TREE  \n\n")
+    
+    tree_hight = int(input("ENTER A VALUE HERE :::>  ").strip())
+    btree = []
+    
+    for N in range(tree_hight):
+        print(f"\n ------- VALUES FOR LEVEL {N} --------\n")
+        btree.append(list(map(int, input("ENTER E SEQUENCE OF VALUES :::>>  ").rstrip().split())))
+
+    print(btree)
+    result = binary_tree_properties(tree_elements=btree, tree_hight=tree_hight)
+    
+    print(f"\n\n THE RESULT IS >>>>>>  {result}")  
+    print("\n\n RESULT DETAIL \n\n")
+    print(f"\t HIGHT OF TREE: {tree_hight}")
+    print(f"\t TREE LEVEL: GOES FROM 0 to {tree_hight-1}")
+    print(f"\t TOTAL ELEMENTS: {int(result.pop(0))}")
+    print(f"\t TOTAL ELEMENTS BY LEVEL: {result.pop(0)}")
+    
+    for n, g in enumerate(result.pop(0)):
+        print(f"\t LEVEL {n}  |  GREATEST {g}")
+        
+    return
  
 def run_greatest_value_in_each_tree_level():
     print("\n\n\n ENTER THE HIGHT OF YOUR BINARY TREE  \n\n")
@@ -185,7 +235,8 @@ def run_ada_challenges():
         "BALANCEAMENTO DE COLCHETES EM UMA EXPRESSÃO MATEMETICA",
         "Revertendo os primeiros k elementos de uma fila",
         "maior valor de cada nivel de uma arvore binaria",
-        "verificar senha"
+        "verificar senha",
+        "propriedades de uma arvore binaria perfeita"
     ]
     print("\n\n")
     print(f"------------ MENU OF OPTIOS ------------\n")
@@ -214,6 +265,8 @@ def run_ada_challenges():
             run_greatest_value_in_each_tree_level()
         case 4:
             run_verifica_senha()
+        case 5:
+            run_binary_tree_properties()
         case 0:
             end_app_execution()
     
