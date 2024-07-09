@@ -77,24 +77,43 @@ import sys
 # The function accepts following parameters:
 #  1. STRING s
 #  2. INTEGER k
-#
+
+
+def calculate_cipher_position(k: int, current_letter_position: int) -> int:
+    alphabet_len = 26
+    remainding_len = alphabet_len - current_letter_position
+    
+    if k <= alphabet_len:
+        cipher_posi = k - remainding_len
+    else:
+        alphabet_len_multile = k//alphabet_len
+        remainding_posi = (alphabet_len_multile * alphabet_len) + remainding_len
+        
+        cipher_posi = k - remainding_posi
+        
+    return cipher_posi
+ 
 
 def caesarCipher(s, k):
-    # Write your code here
-    # TODO: fix this app, there is something wrong on it
     
     alphabet_lower = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
     
-    alphabet_upper = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
-    ]
+    alphabet_upper = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+    
     
     cipher_text = ''
     
-    for letter in s:
+    for letter in s.strip():
         
-        print("CHECKING SIMBOLS ... ")
+        print("VERIFYING NUMBERS ... ")
+        if letter.isnumeric():
+            cipher_text += letter
+            continue
+        
+        print("CHECKING SYMBOLS ... ")
         if letter not in alphabet_lower:
             if letter not in alphabet_upper:
+                # that mean it is a symbol
                 cipher_text += letter
                 continue
             else:
@@ -104,27 +123,20 @@ def caesarCipher(s, k):
         if letter in alphabet_lower:            
             try:
                 letter_position = alphabet_lower.index(letter)
-                cipher_position = letter_position + k 
+                cipher_position = calculate_cipher_position(k, letter_position)
                 cipher_text += alphabet_lower[cipher_position]
             except Exception as exc:
                 print(f"ERROR ---> {exc}")            
-                letter_position = 0
-                cipher_position = (letter_position + k) - 1
-                cipher_text += alphabet_lower[cipher_position]       
             finally:
                 print(f"VARIFICATION DONE FOR LETTER ==>> {letter}")
-  
         
         if letter in alphabet_upper:            
             try:
                 letter_position = alphabet_upper.index(letter)
-                cipher_position = letter_position + k 
+                cipher_position = calculate_cipher_position(k, letter_position)
                 cipher_text += alphabet_upper[cipher_position]
             except Exception as exc:
                 print(f"ERROR ---> {exc}")            
-                letter_position = 0
-                cipher_position = (letter_position + k) - 1
-                cipher_text += alphabet_upper[cipher_position]       
             finally:
                 print(f"VARIFICATION DONE FOR LETTER ==>> {letter}")
         
@@ -151,5 +163,4 @@ if __name__ == '__main__':
 
     print(f"\n THE FINAL RESULT IS:  {result}")
     print("\n\n")    
-        
     
