@@ -1,6 +1,4 @@
 
-# !bin/env/python3
-
 '''
 Julius Caesar protected his confidential information by encrypting it using a cipher. Caesar's cipher shifts each letter by a number of letters. If the shift takes you past the end of the alphabet, just rotate back to the front of the alphabet. In the case of a rotation by 3, w, x, y and z would map to z, a, b and c.
 
@@ -147,14 +145,25 @@ def caesarCipher(s, k):
 
 if __name__ == '__main__':
     # fptr = open(os.environ['OUTPUT_PATH'], 'w')
-    
-
-    n = int(input("ENTER THE STRING LENGHT ::>>  ").strip())
-
-    s = input("ENTER THE STRING ::>>  ")
-
-    k = int(input("ENTER THE SHIFT NUMBER ::>>  ").strip())
-
+    range_control = 0
+    try:        
+        n = int(input("ENTER THE STRING LENGHT in [0, 100] ::>>  ").strip())
+        s = input("ENTER THE STRING ::>>  ")
+        k = int(input("ENTER THE SHIFT NUMBER in [0, 100] ::>>  ").strip())
+    except Exception as exc:
+        print(exc)
+    else:
+        if (n < 0 or n > 100):
+            print(f"WARNING: Lenght of the string is out of range -> {n}")
+            range_control = 1
+        elif (k < 0 or k > 100):
+            print(f"WARNING: Lenght of shifts position is out of range -> {k}")
+            range_control = 1
+            
+        if range_control == 1: 
+            exit(1)
+         
+                
     result = caesarCipher(s, k)
 
     # fptr.write(result + '\n')
