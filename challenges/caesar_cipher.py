@@ -145,29 +145,30 @@ def caesarCipher(s, k):
 
 if __name__ == '__main__':
     # fptr = open(os.environ['OUTPUT_PATH'], 'w')
-    range_control = 0
-    try:        
-        n = int(input("ENTER THE STRING LENGHT in [0, 100] ::>>  ").strip())
-        s = input("ENTER THE STRING ::>>  ")
-        k = int(input("ENTER THE SHIFT NUMBER in [0, 100] ::>>  ").strip())
-    except Exception as exc:
-        print(exc)
-    else:
-        if (n < 0 or n > 100):
-            print(f"WARNING: Lenght of the string is out of range -> {n}")
-            range_control = 1
-        elif (k < 0 or k > 100):
-            print(f"WARNING: Lenght of shifts position is out of range -> {k}")
-            range_control = 1
-            
-        if range_control == 1: 
-            exit(1)
+    
+    start_sms = "LET'S START AGAIN"
+    
+    while True:
+        try:        
+            n = int(input("ENTER THE STRING LENGHT in [0, 100] ::>>  ").strip())
+            s = input("ENTER THE STRING ::>>  ")
+            k = int(input("ENTER THE SHIFT NUMBER in [0, 100] ::>>  ").strip())
+        except Exception as exc:
+            print(exc)
+            print(start_sms)
+        else:
+            if (n < 0 or n > 100):
+                print(f"WARNING: Lenght of the string is out of range -> {n}")
+                print(start_sms)
+            elif (k < 0 or k > 100):
+                print(f"WARNING: Lenght of shifts position is out of range -> {k}")
+                print(start_sms)                
+            else:
+                break
          
-                
     result = caesarCipher(s, k)
 
     # fptr.write(result + '\n')
-
     # fptr.close()
 
     print(f"\n THE FINAL RESULT IS:  {result}")
