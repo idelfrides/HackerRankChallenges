@@ -96,9 +96,9 @@ def run_grid_challenge_through_files():
     fptr = open(filepath, "w")
     
     for tc_itr in range(test_cases):
-        if tc_itr == 74:
-            import pdb
-            pdb.set_trace()
+        # if tc_itr == 74:
+            # import pdb
+            # pdb.set_trace()
             
         print(f"\n\tTESTCASE NUMBER ---> [{tc_itr + 1}]")
         
