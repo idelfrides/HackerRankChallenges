@@ -18,6 +18,9 @@ from LIBS import manager as man
 
     
 def gridChallenge(grid):
+    
+    # WARNING: test case 10 still showing an error. I do not know how to fix it.
+     
     if len(grid) == 1:
         return "YES"
     
