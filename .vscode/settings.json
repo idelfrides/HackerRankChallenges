@@ -1,0 +1,6 @@
+{
+    "python.analysis.extraPaths": [
+        "${workspaceFolder}/challenges", "${workspaceFolder}/LIBS", 
+        "${workspaceFolder}/STAGE"
+    ]
+}
